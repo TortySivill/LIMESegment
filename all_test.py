@@ -12,14 +12,22 @@ from data import loadUCRDataID
 from models import *
 from metrics import *
 
+"""
+Script prints the Faithfulness and Robustness Scores for each explanation method, UCR dataset 
+classification model as recorded in the paper "LIMESegment."
+
+Load each dataset from Data folder storing each train/test set in dictionary: datasets
+Train each classifier on each dataset, storing trained model in dictionary: trined_models
+Generate explantions for each dataset and model and save resulting explanations in dictionary: explanations
+Evaluate Robustness and Faithfulness for each dataset, model and explanation set and save in dictionary: evaluation_metrics
+
+"""
 
 def reshaper(x,j):
     if j == 0:
         return x.reshape(x.shape[0])
     else:
         return x
-
-
 
 
 dataset_map = [('Coffee', 0),
@@ -63,7 +71,7 @@ for data_idx in datasets.keys():
     trained_models[data_idx]['cnn'] = train_CNN_model(model_cnn,
                                                       datasets[data_idx][0],
                                                       datasets[data_idx][1],
-                                                      epochs=2,
+                                                      epochs=100,
                                                       batch_size=BATCH_SIZES[i])[0]
     model_lstmfcn = make_LSTMFCN_model(datasets[data_idx][0].shape[1])
     trained_models[data_idx]['lstmfcn'] = train_LSTMFCN_model(model_lstmfcn,
@@ -71,7 +79,7 @@ for data_idx in datasets.keys():
                                                       datasets[data_idx][1],
                                                       datasets[data_idx][2],
                                                       datasets[data_idx][3],
-                                                      epochs=2,
+                                                      epochs=100,
                                                       batch_size=BATCH_SIZES[i])
     i = i + 1
 
@@ -122,3 +130,6 @@ for data_idx in datasets.keys():
                 # Faithfulness
             evaluation_metrics[data_idx][model_idx][explanation_idx]['Faithfulness'] = faithfulness(explanations[data_idx][model_idx][explanation_idx],explanation_set,explanation_labels,explanation_predictions,trained_models[data_idx][model_idx],model_type=MODEL_TYPES[j])
         j+=1
+
+
+print(evaluation_metrics)
