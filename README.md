@@ -1,5 +1,5 @@
 # LIMESegment
-Code to fully reproduce benchmark results (and to extend for your own purposes) from the paper:<b>LIMESegment: Meaningful, Realistic Time Series Explanations</b>
+Code to fully reproduce benchmark results (and to extend for your own purposes) from the paper: <b>LIMESegment: Meaningful, Realistic Time Series Explanations</b>
 
 ## Goal
 The goal of this package is to provide a modular way of adapting LIME to Time Series data. It provides methods for:
@@ -25,14 +25,14 @@ The goal of this package is to provide a modular way of adapting LIME to Time Se
         <ul> 
           <li> KNN: K Nearest Neighbour Algorithm implemented with Scikit learn </li>
           <li> CNN:1D Convolutional Neural Network implemented with keras </li>
-          <li> LSTMFCN: State of the Art Hybrid LSTM and and LSTMFCN implemented by Karim et al. [Github repo](https://github.com/titu1994/LSTM-FCN) </li>
+          <li> LSTMFCN: State of the Art Hybrid LSTM and and LSTMFCN implemented by Karim et al. : https://github.com/titu1994/LSTM-FCN </li>
         </ul>
       </li> 
       <li> explanations.py: Contains code generating explanations: 
         <ul>
           <li> LIMEsegment: Our proposed adaptation of LIME to time series data  </li>
-          <li> Neves: The proposed adapatation of LIME to time series data of [Neves et al.](https://boa.unimib.it/retrieve/handle/10281/324847/492202/Manuscript.pdf) </li>
-          <li> Leftist: The proposed adaptation of LIME to time series data of [Guilleme et al.](https://ieeexplore.ieee.org/abstract/document/8995349)
+          <li> Neves: The proposed adapatation of LIME to time series data of Neves et al.: (https://boa.unimib.it/retrieve/handle/10281/324847/492202/Manuscript.pdf) </li>
+          <li> Leftist: The proposed adaptation of LIME to time series data of Guilleme et al.: (https://ieeexplore.ieee.org/abstract/document/8995349)
         </ul>
         <li> Contains code for NNSegement, our proposed segmentation algorithm and is a building block of LIMESegment </li>
       <li>  perturbations.py: Contains code for the perturbation strategies evaluated:
@@ -53,14 +53,16 @@ The goal of this package is to provide a modular way of adapting LIME to Time Se
     </ul> 
       <li>RobustnessFaithfulness.py: Evalue LIMESegment against Neves and Leftist on overall explanations </li>
   </li>
-  <li> Data: Contains UCR datasets used in experiments. Note that the apnea dataset used in the Segmentation Tests is not included in this repo but can be downloaded [here](https://www.physionet.org/content/apnea-ecg/1.0.0/) </li>
+  <li> Data: Contains UCR datasets used in experiments. Note that the apnea dataset used in the Segmentation Tests is not included in this repo but can be downloaded from: https://www.physionet.org/content/apnea-ecg/1.0.0/) </li>
 </ul>
 
 
 ## Running LIMESegment
 Run:
+```python
   from Utils.explanations import LIMESegment
   explanations = LIMESegment(ts, model, model_type, distance, window_size, cp, f)
+```
 Returns segment importance vector as returned by LIMESegment
 LIMESegment takes as input:
 <ul> 
