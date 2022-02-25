@@ -61,13 +61,14 @@ The goal of this package is to provide a modular way of adapting LIME to Time Se
 Run:
   from Utils.explanations import LIMESegment
   explanations = LIMESegment(ts, model, model_type, distance, window_size, cp, f)
-
 Returns segment importance vector as returned by LIMESegment
 LIMESegment takes as input:
-ts: TS array of shape T x 1 where T is length of time series 
-model: Trained model on dataset array of shape n x T x 1
-model_type: String indicating if classificaton model produces binary output "class" or probability output "proba", default "class"
-distance: Distance metric to be used by LIMESegment default is 'dtw'
-window_size: Window size to be used by NNSegment default is T/5
-cp: Number of change points to be determinded by NNSegment default is 3
-f: Frequency parameter for RBP default is T/10
+<ul> 
+  <li> ts: TS array of shape T x 1 where T is length of time series </li>
+  <li> model: Trained model on dataset array of shape n x T x 1 </li>
+  <li> model_type: String indicating if classificaton model produces binary output "class" or probability output "proba", default     "class" </li>
+  <li> distance: Distance metric to be used by LIMESegment default is 'dtw' </li>
+  <li> window_size: Window size to be used by NNSegment default is T/5 </li>
+  <li> cp: Number of change points to be determinded by NNSegment default is 3 </li>
+  <li> f: Frequency parameter for RBP default is T/10 </li>
+ </ul> 
