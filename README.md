@@ -31,8 +31,8 @@ The goal of this package is to provide a modular way of adapting LIME to Time Se
       <li> explanations.py: Contains code generating explanations: 
         <ul>
           <li> LIMEsegment: Our proposed adaptation of LIME to time series data  </li>
-          <li> Neves: The proposed adapatation of LIME to time series data of Neves et al.: (https://boa.unimib.it/retrieve/handle/10281/324847/492202/Manuscript.pdf) </li>
-          <li> Leftist: The proposed adaptation of LIME to time series data of Guilleme et al.: (https://ieeexplore.ieee.org/abstract/document/8995349)
+          <li> Neves: The proposed adapatation of LIME to time series data of Neves et al.: https://boa.unimib.it/retrieve/handle/10281/324847/492202/Manuscript.pdf </li>
+          <li> Leftist: The proposed adaptation of LIME to time series data of Guilleme et al.: https://ieeexplore.ieee.org/abstract/document/8995349
         </ul>
         <li> Contains code for NNSegement, our proposed segmentation algorithm and is a building block of LIMESegment </li>
       <li>  perturbations.py: Contains code for the perturbation strategies evaluated:
