@@ -77,11 +77,14 @@ def RBP(generated_samples_interpretable, original_signal, segment_indexes, f):
     xrec = backgroundIdentification(original_signal)
     for sample_interpretable in generated_samples_interpretable:
         raw_signal = original_signal.copy()
-        for index in range(0,len(sample_interpretable)-1):
+        for index in range(0,len(sample_interpretable)):
             if sample_interpretable[index] == 0:
                 index0 = segment_indexes[index]
                 index1 = segment_indexes[index+1]
-                raw_signal[index0:index1] = xrec[index0:index1]
+                if index1 == -1:
+                    raw_signal[index0:] = xrec[index0:]
+                else:
+                    raw_signal[index0:index1] = xrec[index0:index1]
         generated_samples_raw.append(np.asarray(raw_signal))
     return np.asarray(generated_samples_raw)
 
