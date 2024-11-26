@@ -74,7 +74,7 @@ def backgroundIdentification(original_signal,f=40):
 
 def RBP(generated_samples_interpretable, original_signal, segment_indexes, f):
     generated_samples_raw = []
-    xrec = backgroundIdentification(original_signal)
+    xrec = backgroundIdentification(original_signal, f)
     for sample_interpretable in generated_samples_interpretable:
         raw_signal = original_signal.copy()
         for index in range(0,len(sample_interpretable)):
